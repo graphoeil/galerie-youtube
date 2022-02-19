@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url('reset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/* /////////////////////////////// */
+/*               BODY              */
+/* /////////////////////////////// */
+body,html{ background-color: #777; height: 100%; font-family: 'Open Sans', sans-serif; }
+#root{ height: 100%; }
+*{ box-sizing: border-box; text-decoration: none; outline: none; }
+
+/* /////////////////////////////// */
+/*          TYPOS & COULEURS       */
+/* /////////////////////////////// */
+/*
+font-family: 'Open Sans', sans-serif;
+rouge youtube : c4302b
+gris : 777
+noir : 2d3436
+*/
+
+/* /////////////////////////////// */
+/*                HOME             */
+/* /////////////////////////////// */
+.home{ position: fixed; width: 50px; height: 50px; top: 0; left: 0; cursor: pointer; z-index: 99; }
+.innerHome{ position: absolute; width: 100px; height: 100px; top: -50px; left: -50px;
+	background-color: #c4302b; border-radius: 50%; z-index: 99; transition: 0.35s box-shadow ease-in-out; }
+.innerHome i{ position: absolute; top: 63px; left: 61px; color: white; }
+
+/* /////////////////////////////// */
+/*             RECHERCHE           */
+/* /////////////////////////////// */
+.boutonLoupe{ position: fixed; width: 50px; height: 50px; top: 0; right: 0; cursor: pointer; z-index: 99; }
+.innerLoupe{ position: absolute; width: 100px; height: 100px; top: -50px; right: -50px; 
+	background-color: #c4302b; border-radius: 50%; z-index: 99; transition: 0.35s background-color ease-in-out, 0.35s box-shadow ease-in-out; }
+.innerLoupe i{ position: absolute; top: 63px; left: 22px; color: white; }
+.innerRecherche{ display: none; position: fixed; width: 100%; height: 100%; top: 0; background-color: #c4302b; z-index: 90; }
+.champRecherche{ position: absolute; top: 50%; left: 50%; width: 100%; max-width: 600px; text-align: center; transform: translate(-50%,-50%); }
+.champRecherche span{ display: inline-block; width: 40px; height: 40px; margin: 0 10px 0 0; cursor: pointer; }
+.champRecherche span i{ font-size: 18px; color: white; line-height: 40px; }
+.champRecherche input{ width: calc(100% - 150px); padding: 10px; box-shadow: none; outline: none; background-color: transparent;
+	border: none; border-bottom: 1px solid white; color: white; font-size: 18px; font-family: 'Open Sans', sans-serif; }
+.champRecherche button{ display: inline-block; width: 40px; height: 40px; margin: 0 0 0 10px; box-shadow: none; border: none; 
+	outline: none; color: white; background-color: transparent; font-size: 18px; }
+/* placeholder */
+::-webkit-input-placeholder{ color:white; }
+::-moz-placeholder{ color:white; }
+:-ms-input-placeholder{ color:white; }
+:-moz-placeholder{ color:white; }
+
+/* /////////////////////////////// */
+/*              GALERIE            */
+/* /////////////////////////////// */
+.galerie{ padding: 10px; }
+.vignetteVideo{ display: block; position: relative; width: calc(100% - 20px); margin: 10px; overflow: hidden; opacity: 0; 
+	transition: 0.5s opacity ease-in-out, 0.35s box-shadow ease-in-out; }
+.visible{ opacity: 1; }
+.vignetteVideo img{ display: block; width: 100%; height: 100%; object-fit: cover;  }
+.videoTexte{ position: absolute; left: 0; bottom: 0; width: 100%; padding: 5px; background-color: #c4302b; color: white; font-size: 12px; 
+	text-align: center; line-height: 1.6em; }
+.videoTexte h3{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* /////////////////////////////// */
+/*               QUOTA             */
+/* /////////////////////////////// */
+.quota{ position: relative; width: 100%; height: 100%; }
+.innerQuota{ display: block; position: absolute; top: 50%; left: 50%; width: 100%; max-width: 600px; text-align: center; color: white;
+	transform: translate(-50%,-50%); padding: 10px 20px; }
+.innerQuota h3{ font-size: 28px; margin: 0 0 30px 0; line-height: 1.3em; }
+.innerQuota p{ font-size: 15px; line-height: 1.6em; margin: 0 0 45px 0; }
+.innerQuota a{ padding: 10px 20px; color: white; background-color: #c4302b; border-radius: 5px; }
+.innerQuota a i{ padding: 0 10px 0 0; }
+
+/* /////////////////////////////// */
+/*              PLAYER             */
+/* /////////////////////////////// */
+.player{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background-color: #2d3436; }
+.player iframe{ display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.player .playerClose{ position: absolute; bottom: 25px; left: 50%; width: 50px; height: 50px; background-color: #c4302b; color: white;
+	border-radius: 50%; text-align: center; line-height: 48px; font-size: 25px; transform: translateX(-50%); cursor: pointer; z-index: 2; }
+
+/* /////////////////////////////// */
+/*     >= 375px | iPhone 6,7,8     */
+/* /////////////////////////////// */
+@media only screen and (min-width: 375px) and (orientation: landscape){}
+@media only screen and (min-width: 375px) and (orientation: portrait){}
+
+/* /////////////////////////////// */
+/*     >= 768px | iPad portrait    */
+/* /////////////////////////////// */
+@media only screen and (min-width: 768px){
+	/* Galerie */
+	.galerie{ display: -ms-flexbox; display: -webkit-flex; display: flex;
+		-webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row;
+		-webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap;
+		-webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start;
+		-webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch;
+		-webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch;
+		width: 100%; }
+	.vignetteVideo{ width: calc(50% - 20px); }
+}
+
+/* /////////////////////////////// */
+/*   >= 1024px | iPadPro portrait  */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1024px) and (orientation: portrait){
+	/* Galerie */
+	.vignetteVideo{ width: calc(33.33% - 20px); }
+}
+
+/* /////////////////////////////// */
+/*     >= 1024px | iPad paysage    */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1024px) and (orientation: landscape){
+	/* Galerie */
+	.vignetteVideo{ width: calc(33.33% - 20px); }
+}
+
+/* /////////////////////////////// */
+/*  >= 1366px | iPadPro & Laptop   */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1366px){
+	/* Boutons */
+	html.no-touchevents .innerHome, html.no-touchevents .innerLoupe{ box-shadow: 0 0 10px rgba(0,0,0,0); }
+	html.no-touchevents .innerHome:hover, html.no-touchevents .innerLoupe:hover{ box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+	/* Quota */
+	html.no-touchevents .innerQuota a{ box-shadow: 0 0 10px rgba(0,0,0,0); transition: 0.35s box-shadow ease-in-out; }
+	html.no-touchevents .innerQuota a:hover{ box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+	/* Galerie */
+	.vignetteVideo{ width: calc(25% - 20px); }
+	html.no-touchevents .vignetteVideo{ box-shadow: 0 0 10px rgba(0,0,0,0); }
+	html.no-touchevents .vignetteVideo:hover{ box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+	html.no-touchevents .videoTexte{ bottom: -30px; transition: 0.35s bottom ease-in-out; }
+	html.no-touchevents .vignetteVideo:hover .videoTexte{ bottom: 0; }
+	/* Player */
+	html.no-touchevents .playerClose{ box-shadow: 0 0 10px rgba(0,0,0,0); transition: 0.35s box-shadow ease-in-out; }
+	html.no-touchevents .playerClose:hover{ box-shadow: 0 0 10px rgba(0,0,0,0.8); }
+}
+
+/* /////////////////////////////// */
+/*       >= 1690px | iMac          */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1690px){
+	/* Galerie */
+	.vignetteVideo{ width: calc(20% - 20px); }
+}
+
+/* /////////////////////////////// */
+/*    >= 2560px | iMac fullscreen  */
+/* /////////////////////////////// */
+@media only screen and (min-width: 2560px){
+	/* Galerie */
+	.vignetteVideo{ width: calc(12.5% - 20px); }
+}
